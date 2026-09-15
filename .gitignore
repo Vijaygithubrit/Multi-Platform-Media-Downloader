@@ -1,0 +1,65 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==============================
+# Virtual Environment
+# ==============================
+
+.venv/
+venv/
+env/
+
+# ==============================
+# Testing / Coverage
+# ==============================
+
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# ==============================
+# Environment Variables / Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Application Generated Files
+# ==============================
+
+downloads/*
+!downloads/.gitkeep
+
+temp/
+logs/
+
+# ==============================
+# IDE / Editor
+# ==============================
+
+.vscode/
+.idea/
+
+# ==============================
+# OS Generated Files
+# ==============================
+
+Thumbs.db
+.DS_Store
+
+# ==============================
+# Backup / Temporary Files
+# ==============================
+
+manual_backup/
+*.bak
+*.tmp
