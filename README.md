@@ -1,184 +1,88 @@
-\# Universal Media Downloader
+# UniversalMediaBot
 
+A modular Python-based media downloader backend that detects public media URLs, determines the available media type, downloads video, audio, and images, processes media with FFmpeg, and safely stores final files with automatic sequential naming.
 
+The current version is a **stable local CLI backend** designed as the foundation for a future Telegram media downloader bot.
 
-A Python-based media downloading backend that detects supported URLs and downloads videos, audio, and images using platform-specific extraction and processing tools.
+---
 
+## 🚀 Features
 
+### 🎬 Video & Audio
 
-\## 🚀 Current Features
+- Automatic media type detection
+- Best available video quality
+- Best available audio source
+- Video + audio stream merging with FFmpeg
+- Audio extraction and MP3 conversion
+- FFprobe verification of downloaded video
+- Automatic sequential filenames
+- Temporary-file processing before permanent storage
 
+### 🖼️ Image Downloads
 
+Supports direct image URLs including:
 
-\- URL validation for HTTP and HTTPS links
+- JPG / JPEG
+- PNG
+- WEBP
+- GIF
+- BMP
+- TIFF
+- AVIF
 
-\- Automatic media type detection
+The downloader determines the image format using HTTP content type and URL information.
 
-\- Video downloading
+### 🌐 Current Platform Support
 
-\- Audio extraction and MP3 conversion
+The backend currently supports workflows involving:
 
-\- Direct image downloading
+- YouTube videos
+- YouTube Shorts
+- Instagram posts
+- Instagram Reels
+- Instagram images
+- Instagram videos
+- Instagram image carousels
+- Instagram mixed image/video carousels
+- Facebook posts
+- Facebook Reels
+- Direct image URLs
+- Other websites supported by the configured yt-dlp extractors
 
-\- Best available video and audio selection
+> Platform support depends on the underlying extractor and the current behavior of each website. Support for a site does not guarantee that every individual URL will work.
 
-\- FFmpeg-based video/audio merging
+---
 
-\- Sequential, non-overwriting filenames
+## 📸 Instagram Carousel Support
 
-\- Temporary file cleanup
+Instagram carousels receive dedicated handling.
 
-\- FFprobe-based media validation
+### Image-only carousels
 
-\- Instagram post and carousel detection
+Supported operations:
 
-\- Instagram image carousel downloading
+- Download all supported images
+- Select specific items
+- Preview individual images
+- Download remaining items
+- Select more items during the same session
 
-\- Instagram carousel image previews
+### Mixed carousels
 
-\- Mixed Instagram carousel detection
+Images are currently supported.
 
-\- Automated test suite with pytest
+Carousel videos are detected but downloading them is intentionally deferred to a future version.
 
-
-
-\## 📌 Supported Media
-
-
-
-\### YouTube
-
-
-
-\- Videos
-
-\- Shorts
-
-\- Audio extraction
-
-
-
-\### Instagram
-
-
-
-\- Single image posts
-
-\- Single video posts
-
-\- Image carousels
-
-\- Mixed image/video carousels
-
-
-
-\### Direct Image URLs
-
-
-
-Supported image formats include:
-
-
-
-\- JPG / JPEG
-
-\- PNG
-
-\- WEBP
-
-\- GIF
-
-\- BMP
-
-\- TIFF
-
-\- AVIF
-
-
-
-\## ⚠️ Current Instagram Carousel Limitation
-
-
-
-Instagram carousel videos are detected but are not currently downloaded in V1.
-
-
-
-For mixed carousels:
-
-
-
-\- Images can be previewed and downloaded.
-
-\- Video items are detected.
-
-\- Carousel video downloading is planned for a future version.
-
-
-
-\## 🏗️ Project Structure
-
-
+Example:
 
 ```text
+Item 1 → Image → Supported
+Item 2 → Video → Not yet supported
+Item 3 → Image → Supported
 
-UniversalMediaBot/
+## 📄 License
 
-│
+This project is licensed under the MIT License.
 
-├── downloads/                  # Generated media files
-
-├── logs/                       # Runtime logs
-
-├── manual/                     # Manual real-world tests
-
-│   ├── compatibility\_test.py
-
-│   ├── download\_test.py
-
-│   └── instagram\_mixed\_carousel\_test.py
-
-│
-
-├── src/
-
-│   ├── detector.py             # URL/media detection
-
-│   ├── downloader.py           # Video/audio downloading
-
-│   ├── file\_manager.py         # Sequential filename management
-
-│   ├── image\_downloader.py     # Direct image downloading
-
-│   ├── media\_service.py        # Main media workflow
-
-│   ├── processors.py           # FFmpeg/FFprobe processing
-
-│   ├── validators.py           # URL validation
-
-│   │
-
-│   ├── platforms/
-
-│   │   └── instagram.py        # Instagram extraction
-
-│   │
-
-│   └── services/
-
-│       ├── carousel\_service.py # Carousel session management
-
-│       └── preview\_service.py  # Image preview handling
-
-│
-
-├── tests/                      # Automated tests
-
-│
-
-├── .gitignore
-
-├── requirements.txt
-
-└── README.md
-
+See the [LICENSE](LICENSE) file for details.
