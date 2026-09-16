@@ -2,7 +2,7 @@
 
 A modular Python-based media downloader backend that detects public media URLs, determines the available media type, downloads video, audio, and images, processes media with FFmpeg, and safely stores final files with automatic sequential naming.
 
-The current version is a **stable local CLI backend** designed as the foundation for a future Telegram media downloader bot.
+The current version is a stable local CLI backend designed as the foundation for a future Telegram media downloader bot.
 
 ---
 
@@ -18,6 +18,7 @@ The current version is a **stable local CLI backend** designed as the foundation
 - FFprobe verification of downloaded video
 - Automatic sequential filenames
 - Temporary-file processing before permanent storage
+- Safe final-file handling
 
 ### 🖼️ Image Downloads
 
@@ -48,7 +49,7 @@ The backend currently supports workflows involving:
 - Facebook posts
 - Facebook Reels
 - Direct image URLs
-- Other websites supported by the configured yt-dlp extractors
+- Other websites supported by configured `yt-dlp` extractors
 
 > Platform support depends on the underlying extractor and the current behavior of each website. Support for a site does not guarantee that every individual URL will work.
 
@@ -68,7 +69,7 @@ Supported operations:
 - Download remaining items
 - Select more items during the same session
 
-### Mixed carousels
+### Mixed image/video carousels
 
 Images are currently supported.
 
@@ -80,9 +81,3 @@ Example:
 Item 1 → Image → Supported
 Item 2 → Video → Not yet supported
 Item 3 → Image → Supported
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-See the [LICENSE](LICENSE) file for details.
