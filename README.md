@@ -1,4 +1,4 @@
-# UniversalMediaBot
+# Multi-Platform Media Downloader
 
 A modular Python-based media downloader backend that detects public media URLs, determines the available media type, downloads video, audio, and images, processes media with FFmpeg, and safely stores final files with automatic sequential naming.
 
